@@ -1,0 +1,129 @@
+.footer {
+  margin-top: 5rem;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--background);
+
+  .footer-container {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .footer-logo-icon {
+      background: linear-gradient(to right, #ffbc80, #ffbc80cc);
+      padding: 1rem;
+      border-radius: 9999px;
+      margin-right: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .icon {
+      width: 2rem;
+      height: 2rem;
+      color: white;
+    }
+
+    .footer-title {
+      font-size: 1.75rem;
+      font-weight: bold;
+    }
+
+    .crown-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: #ffbc80;
+      margin-left: 0.5rem;
+    }
+
+    .footer-subtitle {
+      font-size: 0.875rem;
+      color: #666;
+    }
+  }
+
+  .footer-quote {
+    max-width: 40rem;
+    margin: 0 auto 2.5rem;
+
+    .quote-text {
+      font-style: italic;
+      font-size: 1.25rem;
+      color: #444;
+    }
+
+    .quote-author {
+      display: block;
+      margin-top: 1rem;
+      color: #ffbc80;
+      font-weight: 500;
+    }
+  }
+
+  .footer-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+
+    .icon-wrapper {
+      cursor: pointer;
+      transition: color 0.3s ease;
+      color: #ffbc80aa;
+
+      &:hover {
+        color: #ffbc80;
+      }
+
+      .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      &.delay-1 .icon {
+        animation-delay: 0.5s;
+      }
+
+      &.delay-2 .icon {
+        animation-delay: 1s;
+      }
+
+      &.delay-3 .icon {
+        animation-delay: 1.5s;
+      }
+    }
+  }
+
+  .footer-copyright {
+    border-top: 1px solid #ddd;
+    padding-top: 2rem;
+
+    .copyright-main {
+      font-size: 0.875rem;
+      color: #777;
+    }
+
+    .copyright-sub {
+      font-size: 0.75rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
