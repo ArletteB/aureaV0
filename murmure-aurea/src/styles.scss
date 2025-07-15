@@ -1,1 +1,120 @@
 /* You can add global styles to this file, and also import other style files */
+
+// -------------------------
+// Variables
+// -------------------------
+$color-background: #faf8f3;
+$color-surface: #ffffff;
+$color-text: #333333;
+$color-heading: #2e2e2e;
+$color-accent: #cfa46b;
+$color-accent-light: #e6d5b3;
+$color-link: #8a6e4f;
+$color-link-hover: #cfa46b;
+
+$font-base: 'Playfair Display', serif;
+$font-script: 'Great Vibes', cursive;
+$font-mono: 'Roboto Mono', monospace;
+
+$line-height-base: 1.6;
+$border-radius: 0.5rem;
+$transition-fast: 0.2s ease-in-out;
+
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-base;
+  font-size: 1rem;
+  line-height: $line-height-base;
+  color: $color-text;
+//   background: linear-gradient(135deg, #FFF8DC 0%, #F8F8FF 50%, #E6E6FA 100%);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+// -------------------------
+// Typography
+// -------------------------
+h1, h2, h3, h4, h5, h6 {
+  color: $color-heading;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-family: $font-script;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  transition: color $transition-fast;
+  &:hover {
+    color: $color-link-hover;
+    text-decoration: underline;
+  }
+}
+
+// -------------------------
+// Layout Utilities
+// -------------------------
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.col {
+  flex: 1;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+// -------------------------
+// Components
+// -------------------------
+.btn {
+  display: inline-block;
+  font-family: $font-base;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid $color-accent;
+  border-radius: $border-radius;
+  background-color: transparent;
+  color: $color-accent;
+  cursor: pointer;
+  transition: background-color $transition-fast, color $transition-fast;
+  &:hover {
+    background-color: $color-accent;
+    color: $color-surface;
+  }
+}

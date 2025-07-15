@@ -1,1 +1,70 @@
-<p>home works!</p>
+    <div class="home-container">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="floating-feather">🪶</div>
+          <h1 class="hero-title">
+            Murmure d'Aurea
+          </h1>
+          <p class="hero-subtitle">
+            Où les mots dansent avec les étoiles
+          </p>
+          <p class="hero-description">
+            Plongez dans un univers poétique où chaque vers résonne comme un murmure d'or.
+            Découvrez des poèmes, des slams et des citations qui touchent l'âme.
+          </p>
+          <div class="hero-buttons">
+            <a routerLink="/bibliotheque" class="btn btn-primary">
+              Découvrir la Bibliothèque
+            </a>
+            <a routerLink="/auteure" class="btn btn-secondary">
+              Rencontrer l'Auteure
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="ink-drop"></div>
+          <div class="floating-words">
+            <span class="word" style="--delay: 0s">Poésie</span>
+            <span class="word" style="--delay: 1s">Émotion</span>
+            <span class="word" style="--delay: 2s">Rêve</span>
+            <span class="word" style="--delay: 3s">Inspiration</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured-writings">
+        <h2>Écrits du Moment</h2>
+        <div class="writings-grid">
+          <div class="writing-card" *ngFor="let writing of featuredWritings">
+            <div class="card-header">
+              <span class="writing-type">{{ writing.type }}</span>
+              <span class="writing-date">{{ writing.date }}</span>
+            </div>
+            <h3>{{ writing.title }}</h3>
+            <p class="writing-excerpt">{{ writing.excerpt }}</p>
+            <a [routerLink]="['/lecture', writing.id]" class="read-more">
+              Lire la suite
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-preview">
+        <div class="about-content">
+          <div class="about-image">
+            <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Plume et encre" />
+          </div>
+          <div class="about-text">
+            <h2>L'Art des Mots</h2>
+            <p>
+              Chaque texte est une invitation au voyage, une exploration des émotions humaines 
+              à travers la beauté des mots. Aurea vous guide dans cet univers où la poésie 
+              devient une langue universelle.
+            </p>
+            <a routerLink="/auteure" class="btn btn-outline">
+              En savoir plus
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
