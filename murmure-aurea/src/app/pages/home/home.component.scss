@@ -1,0 +1,292 @@
+    .home-container {
+      padding-top: 80px;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      gap: 4rem;
+    }
+
+    .hero-content {
+      flex: 1;
+      position: relative;
+    }
+
+    .floating-feather {
+      position: absolute;
+      top: -2rem;
+      right: 2rem;
+      font-size: 3rem;
+      animation: float 4s ease-in-out infinite;
+      opacity: 0.7;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #8B4513;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #D4AF37, #8B4513);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: #8B4513;
+      font-style: italic;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #5D4037;
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(45deg, #D4AF37, #B8860B);
+      color: white;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #8B4513;
+      border: 2px solid #8B4513;
+    }
+
+    .btn-secondary:hover {
+      background: #8B4513;
+      color: white;
+    }
+
+    .hero-visual {
+      flex: 1;
+      position: relative;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ink-drop {
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, #8B4513 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .floating-words {
+      position: absolute;
+      inset: 0;
+    }
+
+    .word {
+      position: absolute;
+      font-size: 1.2rem;
+      color: #D4AF37;
+      font-weight: 500;
+      opacity: 0;
+      animation: wordFloat 6s ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
+    .word:nth-child(1) { top: 10%; left: 20%; }
+    .word:nth-child(2) { top: 30%; right: 10%; }
+    .word:nth-child(3) { bottom: 30%; left: 10%; }
+    .word:nth-child(4) { bottom: 10%; right: 20%; }
+
+    @keyframes wordFloat {
+      0%, 100% { opacity: 0; transform: translateY(0px); }
+      50% { opacity: 1; transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.1); opacity: 0.6; }
+    }
+
+    .featured-writings {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .featured-writings h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      text-align: center;
+      color: #8B4513;
+      margin-bottom: 3rem;
+    }
+
+    .writings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .writing-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .writing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .writing-type {
+      background: linear-gradient(45deg, #D4AF37, #B8860B);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .writing-date {
+      color: #8B4513;
+      font-size: 0.9rem;
+    }
+
+    .writing-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #8B4513;
+      margin-bottom: 1rem;
+    }
+
+    .writing-excerpt {
+      color: #5D4037;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .read-more {
+      color: #D4AF37;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .read-more:hover {
+      color: #8B4513;
+    }
+
+    .about-preview {
+      background: linear-gradient(135deg, rgba(255, 248, 220, 0.8), rgba(248, 248, 255, 0.8));
+      padding: 4rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .about-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #8B4513;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #5D4037;
+      margin-bottom: 2rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #8B4513;
+      border: 2px solid #8B4513;
+    }
+
+    .btn-outline:hover {
+      background: #8B4513;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-visual {
+        height: 300px;
+      }
+    }
