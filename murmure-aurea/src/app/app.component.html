@@ -1,7 +1,9 @@
-<nav>
-  <a routerLink="/">Accueil</a> |
-  <a routerLink="/bibliotheque">Bibliothèque</a>
-</nav>
+<app-header
+  [currentPage]="'home'"
+></app-header>
 
-<router-outlet></router-outlet>
+<main class="content">
+  <router-outlet></router-outlet>
+</main>
+
 <app-footer></app-footer>
