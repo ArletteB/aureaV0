@@ -1,1 +1,64 @@
-<p>library works!</p>
+    <div class="library-container">
+      <section class="library-hero">
+        <h1>Bibliothèque Poétique</h1>
+        <p>Explorez l'univers des mots et laissez-vous porter par la magie des vers</p>
+      </section>
+
+      <section class="filters">
+        <div class="filter-container">
+          <h3>Filtrer par :</h3>
+          <div class="filter-options">
+            <button 
+              *ngFor="let type of writingTypes"
+              (click)="setFilter(type)"
+              [class.active]="selectedFilter === type"
+              class="filter-btn"
+            >
+              {{ type }}
+            </button>
+          </div>
+          <div class="search-container">
+            <input 
+              type="text" 
+              placeholder="Rechercher un titre..."
+              [(ngModel)]="searchQuery"
+              (input)="filterWritings()"
+              class="search-input"
+            />
+            <span class="search-icon">🔍</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="writings-collection">
+        <div class="writings-grid">
+          <div 
+            *ngFor="let writing of filteredWritings"
+            class="writing-card"
+            (click)="navigateToReading(writing.id)"
+          >
+            <div class="card-decoration">
+              <div class="decoration-element" [ngStyle]="{'background-color': getTypeColor(writing.type)}"></div>
+            </div>
+            <div class="card-header">
+              <span class="writing-type" [ngStyle]="{'background-color': getTypeColor(writing.type)}">
+                {{ writing.type }}
+              </span>
+              <span class="writing-date">{{ writing.date }}</span>
+            </div>
+            <h3>{{ writing.title }}</h3>
+            <p class="writing-excerpt">{{ writing.excerpt }}</p>
+            <div class="card-footer">
+              <span class="reading-time">{{ writing.readingTime }}</span>
+              <span class="word-count">{{ writing.wordCount }} mots</span>
+            </div>
+          </div>
+        </div>
+        
+        <div *ngIf="filteredWritings.length === 0" class="no-results">
+          <div class="no-results-icon">📚</div>
+          <h3>Aucun écrit trouvé</h3>
+          <p>Essayez de modifier vos filtres ou votre recherche</p>
+        </div>
+      </section>
+    </div>
