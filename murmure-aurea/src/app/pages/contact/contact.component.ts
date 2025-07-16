@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -10,23 +10,22 @@ import { CommonModule } from '@angular/common';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
-  contactForm: FormGroup;
+  private fb = inject(FormBuilder);
+
+    contactForm: FormGroup = this.fb.group({
+    name: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
+    subject: ['', [Validators.required]],
+    message: ['', [Validators.required, Validators.minLength(10)]],
+    newsletter: [false]
+  });
+
   isSubmitting = false;
   isSubmitted = false;
 
-  constructor(private fb: FormBuilder) {
-    this.contactForm = this.fb.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      subject: ['', [Validators.required]],
-      message: ['', [Validators.required, Validators.minLength(10)]],
-      newsletter: [false]
-    });
-  }
-
   isFieldInvalid(fieldName: string): boolean {
     const field = this.contactForm.get(fieldName);
-    return field ? field.invalid && (field.dirty || field.touched) : false;
+    return !!(field && field.invalid && (field.dirty || field.touched));
   }
 
   onSubmit() {
