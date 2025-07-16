@@ -1,0 +1,60 @@
+<section class="auteure-section">
+  <div class="profile-container">
+    <div class="avatar">
+      <div class="avatar-circle">
+        <span class="avatar-icon">✒️</span>
+      </div>
+    </div>
+    <h1 class="author-name">Murmure d'Aurea</h1>
+    <p class="author-subtitle">Tisseuse de mots, gardienne des émotions</p>
+    <div class="divider"></div>
+  </div>
+</section>
+
+<section class="auteure-soul animate-fade-in-up" style="animation-delay: 0.2s;">
+  <div class="soul-container prose-container">
+    <h2 class="soul-title">L’Âme derrière les Mots</h2>
+    <div class="soul-content">
+      <div class="card">
+        <div class="card-content">
+          <p>Dans le silence de la nuit, quand le monde s'endort et que les étoiles commencent leur danse éternelle, naissent les mots qui forment l'essence de Murmure d'Aurea. Poète de l'ombre et de la lumière, elle trouve dans l'écriture un refuge pour les émotions trop grandes pour être contenues.</p>
+        <p>Depuis l'enfance, les mots ont été ses compagnons fidèles. D'abord timides murmures sur des carnets secrets, ils sont devenus au fil du temps une symphonie d'émotions que seule l'encre sait traduire. Chaque texte est un fragment d'âme, une fenêtre ouverte sur l'invisible.</p>
+        <p>Murmure d'Aurea croit profondément que la poésie n'est pas seulement un art, mais un langage universel capable de toucher les cœurs au-delà des barrières. Dans chaque vers, elle cherche à capturer l'essence de l'humain : ses joies, ses peines, ses espoirs et ses rêves les plus secrets.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="auteure-philosophy animate-fade-in-up" style="animation-delay: 0.4s;">
+  <div class="prose-container">
+    <h2 class="philosophy-title">Philosophie Créative</h2>
+    <div class="philosophy-card">
+      <blockquote class="philosophy-quote">
+        "L'écriture n'est pas un acte de création, mais de révélation. Les mots existent déjà dans l'univers ; nous ne faisons que les cueillir comme des étoiles tombantes pour les offrir à ceux qui savent encore rêver."
+      </blockquote>
+      <div class="philosophy-divider"></div>
+    </div>
+  </div>
+</section>
+
+      <section class="inspiration-section">
+        <div class="inspiration-content">
+          <h2>Sources d'Inspiration</h2>
+          <div class="inspiration-quote">
+            <blockquote>
+              "J'écris pour capturer l'insaisissable, pour donner corps aux émotions 
+              qui dansent dans l'ombre de nos cœurs. Chaque mot est une étoile 
+              que je cueille dans l'immensité de l'âme humaine."
+            </blockquote>
+            <cite>— Murmure d'Aurea</cite>
+          </div>
+          <div class="inspiration-grid">
+            <div class="inspiration-item" *ngFor="let inspiration of inspirations">
+              <div class="inspiration-icon">{{ inspiration.icon }}</div>
+              <h4>{{ inspiration.title }}</h4>
+              <p>{{ inspiration.description }}</p>
+            </div>
+          </div>
+        </div>
+      </section>

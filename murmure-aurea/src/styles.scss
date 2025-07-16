@@ -5,8 +5,8 @@
 // -------------------------
 $color-background: #faf8f3;
 $color-surface: #ffffff;
-$color-text: #333333;
-$color-heading: #2e2e2e;
+$color-text: #5D4037;
+$color-heading: #8B4513 !important;
 $color-accent: #cfa46b;
 $color-accent-light: #e6d5b3;
 $color-link: #8a6e4f;
@@ -57,13 +57,20 @@ img, picture, video, canvas, svg {
 // -------------------------
 h1, h2, h3, h4, h5, h6 {
   color: $color-heading;
+  background: linear-gradient(45deg, #D4AF37, #8B4513);
   line-height: 1.2;
   margin-bottom: 1rem;
   font-family: $font-script;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 p {
   margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
 }
 
 a {

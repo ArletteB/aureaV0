@@ -1,0 +1,208 @@
+.auteure-section {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem;
+  animation: fade-in-up 0.8s ease-out both;
+
+  .profile-container {
+    max-width: 48rem;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .avatar {
+    margin: 0 auto 1.5rem;
+    .avatar-circle {
+      width: 8rem;
+      height: 8rem;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: linear-gradient(to bottom right, var(--primary)/20, var(--accent)/20);
+      border: 0.25rem solid rgba(var(--primary-rgb), 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .avatar-icon {
+        font-size: 4rem;
+        color: var(--primary);
+        animation: shimmer 2s infinite;
+      }
+    }
+  }
+
+  .author-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 8px var(--primary);
+  }
+
+  .author-subtitle {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--muted-foreground);
+    margin-bottom: 2rem;
+  }
+
+  .divider {
+    width: 8rem;
+    height: 0.25rem;
+    margin: 0 auto;
+    background: linear-gradient(to right, transparent, var(--primary), transparent);
+  }
+}
+
+.auteure-soul {
+  padding: 3rem 1rem;
+  animation: fade-in-up 0.8s ease-out both;
+
+  .prose-container {
+    max-width: 60rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .soul-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.25rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .soul-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .card {
+      background-color: rgba(var(--card-rgb), 0.6);
+      backdrop-filter: blur(0.5rem);
+      border: 1px solid rgba(var(--border-rgb), 0.5);
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+
+      .card-content {
+        padding: 2rem;
+      }
+    }
+  }
+}
+
+.auteure-philosophy {
+  padding: 3rem 1rem;
+  animation: fade-in-up 0.8s ease-out both;
+
+  .prose-container {
+    max-width: 60rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .philosophy-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.25rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .philosophy-card {
+    background: linear-gradient(to bottom right, var(--primary)/5, var(--accent)/5);
+    backdrop-filter: blur(0.5rem);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .philosophy-quote {
+      font-size: 1.125rem;
+      font-style: italic;
+      color: rgba(var(--foreground-rgb), 0.9);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .philosophy-divider {
+      width: 4rem;
+      height: 0.25rem;
+      margin: 1rem auto 0;
+      background: linear-gradient(to right, transparent, var(--primary), transparent);
+    }
+  }
+}
+
+.inspiration-section {
+    padding: 4rem 2rem;
+    .inspiration-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      animation: fade-in-up 0.8s ease-out both;
+    }
+}
+    .inspiration-quote {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .inspiration-quote blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: #8B4513;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 1rem;
+    }
+
+    .inspiration-quote cite {
+      color: #D4AF37;
+      font-weight: 500;
+    }
+
+    .inspiration-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .inspiration-item {
+      background: rgb(218 215 212 / 80%);
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .inspiration-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .inspiration-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: #8B4513;
+      margin-bottom: 0.5rem;
+    }
+
+    .inspiration-item p {
+      color: #5D4037;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(2rem);}  
+  to   { opacity: 1; transform: translateY(0);}  
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.6;} 50% { opacity: 1;} 100% { opacity: 0.6;}  
+}
