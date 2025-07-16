@@ -1,7 +1,7 @@
 .footer {
   margin-top: 5rem;
   border-top: 1px solid var(--border-color);
-  background-color: var(--background);
+  background-color: #faf8f3;
 
   .footer-container {
     max-width: 90rem;
@@ -27,7 +27,6 @@
     .icon {
       width: 2rem;
       height: 2rem;
-      color: white;
     }
 
     .footer-title {
@@ -38,13 +37,11 @@
     .crown-icon {
       width: 1.5rem;
       height: 1.5rem;
-      color: #ffbc80;
       margin-left: 0.5rem;
     }
 
     .footer-subtitle {
       font-size: 0.875rem;
-      color: #666;
     }
   }
 
@@ -55,13 +52,11 @@
     .quote-text {
       font-style: italic;
       font-size: 1.25rem;
-      color: #444;
     }
 
     .quote-author {
       display: block;
       margin-top: 1rem;
-      color: #ffbc80;
       font-weight: 500;
     }
   }
@@ -75,7 +70,6 @@
     .icon-wrapper {
       cursor: pointer;
       transition: color 0.3s ease;
-      color: #ffbc80aa;
 
       &:hover {
         color: #ffbc80;
@@ -107,12 +101,10 @@
 
     .copyright-main {
       font-size: 0.875rem;
-      color: #777;
     }
 
     .copyright-sub {
       font-size: 0.75rem;
-      color: #aaa;
       margin-top: 0.5rem;
     }
   }
