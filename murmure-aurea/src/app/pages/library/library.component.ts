@@ -1,11 +1,124 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+
+interface Writing {
+  id: number;
+  type: 'Poème' | 'Slam' | 'Citation';
+  title: string;
+  excerpt: string;
+  date: string;
+  readingTime: string;
+  wordCount: number;
+}
 
 @Component({
   selector: 'app-library',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './library.component.html',
   styleUrl: './library.component.scss'
 })
 export class LibraryComponent {
+  getTypeColor(type: string): string {
+  const colors: Record<string, string> = {
+    'Poème': '#D4AF37',
+    'Slam': '#8B4513',
+    'Citation': '#9370DB'
+  };
+  return colors[type] || '#D4AF37';
+}
 
+  writingTypes = ['Tous', 'Poème', 'Slam', 'Citation'];
+  selectedFilter = 'Tous';
+  searchQuery = '';
+  filteredWritings: Writing[] = [];
+
+  allWritings: Writing[] = [
+    {
+      id: 1,
+      type: 'Poème',
+      title: 'Murmures de l\'Aube',
+      excerpt: 'Dans le silence de l\'aube naissante, les mots dansent sur les lèvres du vent, portant avec eux les secrets de la nuit...',
+      date: '15 Décembre 2024',
+      readingTime: '3 min',
+      wordCount: 120
+    },
+    {
+      id: 2,
+      type: 'Slam',
+      title: 'Échos Urbains',
+      excerpt: 'Les rues racontent leurs histoires, dans un rythme effréné qui pulse au cœur de la ville moderne...',
+      date: '12 Décembre 2024',
+      readingTime: '2 min',
+      wordCount: 95
+    },
+    {
+      id: 3,
+      type: 'Citation',
+      title: 'Perles de Sagesse',
+      excerpt: '"La poésie est le langage que parlent les étoiles quand elles veulent toucher nos âmes."',
+      date: '10 Décembre 2024',
+      readingTime: '1 min',
+      wordCount: 25
+    },
+    {
+      id: 4,
+      type: 'Poème',
+      title: 'Sérénité Nocturne',
+      excerpt: 'Sous le voile étoilé de la nuit profonde, les pensées s\'élèvent comme des volutes d\'encens...',
+      date: '8 Décembre 2024',
+      readingTime: '4 min',
+      wordCount: 150
+    },
+    {
+      id: 5,
+      type: 'Slam',
+      title: 'Révolution Silencieuse',
+      excerpt: 'Dans le fracas du quotidien, une révolution silencieuse s\'opère, celle des mots qui libèrent...',
+      date: '5 Décembre 2024',
+      readingTime: '3 min',
+      wordCount: 110
+    },
+    {
+      id: 6,
+      type: 'Citation',
+      title: 'Lumière Intérieure',
+      excerpt: '"Chaque mot écrit est une bougie allumée dans l\'obscurité de l\'âme."',
+      date: '3 Décembre 2024',
+      readingTime: '1 min',
+      wordCount: 20
+    }
+  ];
+
+  private router = inject(Router);
+
+  constructor() {
+    this.applyFilter();
+  }
+
+  setFilter(type: string): void {
+    this.selectedFilter = type;
+    this.applyFilter();
+  }
+
+  onSearch(query: string): void {
+    this.searchQuery = query;
+    this.applyFilter();
+  }
+
+  private applyFilter(): void {
+    const q = this.searchQuery.trim().toLowerCase();
+    this.filteredWritings = this.allWritings.filter(w => {
+      const matchesType = this.selectedFilter === 'Tous' || w.type === this.selectedFilter;
+      const matchesSearch = !q || w.title.toLowerCase().includes(q) || w.excerpt.toLowerCase().includes(q);
+      return matchesType && matchesSearch;
+    });
+  }
+
+  navigateToReading(id: number): void {
+    this.router.navigate(['/lecture', id]);
+  }
 }
