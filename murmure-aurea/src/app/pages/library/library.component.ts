@@ -1,8 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+
+interface Writing {
+  id: number;
+  type: 'Poème' | 'Slam' | 'Citation';
+  title: string;
+  excerpt: string;
+  date: string;
+  readingTime: string;
+  wordCount: number;
+}
 
 @Component({
   selector: 'app-library',
@@ -12,12 +22,21 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './library.component.scss'
 })
 export class LibraryComponent {
-    writingTypes = ['Tous', 'Poème', 'Slam', 'Citation'];
-  selectedFilter = 'Tous';
-  searchQuery = '';
-  filteredWritings: any[] = [];
+  getTypeColor(type: string): string {
+  const colors: Record<string, string> = {
+    'Poème': '#D4AF37',
+    'Slam': '#8B4513',
+    'Citation': '#9370DB'
+  };
+  return colors[type] || '#D4AF37';
+}
 
-  allWritings = [
+  writingTypes: string[] = ['Tous', 'Poème', 'Slam', 'Citation'];
+  selectedFilter: string = 'Tous';
+  searchQuery: string = '';
+  filteredWritings: Writing[] = [];
+
+  allWritings: Writing[] = [
     {
       id: 1,
       type: 'Poème',
@@ -74,38 +93,30 @@ export class LibraryComponent {
     }
   ];
 
-  constructor() {
-    this.filterWritings();
+  constructor(private router: Router) {
+    this.applyFilter();
   }
 
-  setFilter(type: string) {
+  setFilter(type: string): void {
     this.selectedFilter = type;
-    this.filterWritings();
+    this.applyFilter();
   }
 
-  filterWritings() {
-    this.filteredWritings = this.allWritings.filter(writing => {
-      const matchesType = this.selectedFilter === 'Tous' || writing.type === this.selectedFilter;
-      const matchesSearch = !this.searchQuery || 
-        writing.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
-        writing.excerpt.toLowerCase().includes(this.searchQuery.toLowerCase());
-      
+  onSearch(query: string): void {
+    this.searchQuery = query;
+    this.applyFilter();
+  }
+
+  private applyFilter(): void {
+    const q = this.searchQuery.trim().toLowerCase();
+    this.filteredWritings = this.allWritings.filter(w => {
+      const matchesType = this.selectedFilter === 'Tous' || w.type === this.selectedFilter;
+      const matchesSearch = !q || w.title.toLowerCase().includes(q) || w.excerpt.toLowerCase().includes(q);
       return matchesType && matchesSearch;
     });
   }
 
-  getTypeColor(type: string): string {
-    const colors = {
-      'Poème': '#D4AF37',
-      'Slam': '#8B4513',
-      'Citation': '#9370DB'
-    };
-    return colors[type as keyof typeof colors] || '#D4AF37';
+  navigateToReading(id: number): void {
+    this.router.navigate(['/lecture', id]);
   }
-
-  navigateToReading(id: number) {
-    // Navigation handled by Angular router
-    window.location.href = `/lecture/${id}`;
-  }
-
 }
