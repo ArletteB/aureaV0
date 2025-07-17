@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -31,9 +31,9 @@ export class LibraryComponent {
   return colors[type] || '#D4AF37';
 }
 
-  writingTypes: string[] = ['Tous', 'Poème', 'Slam', 'Citation'];
-  selectedFilter: string = 'Tous';
-  searchQuery: string = '';
+  writingTypes = ['Tous', 'Poème', 'Slam', 'Citation'];
+  selectedFilter = 'Tous';
+  searchQuery = '';
   filteredWritings: Writing[] = [];
 
   allWritings: Writing[] = [
@@ -93,7 +93,9 @@ export class LibraryComponent {
     }
   ];
 
-  constructor(private router: Router) {
+  private router = inject(Router);
+
+  constructor() {
     this.applyFilter();
   }
 
